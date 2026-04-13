@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 
 async function getProducts() {
-  const res = await fetch('https://fakestoreapi.com/products', {
+  const res = await fetch('https://dummyjson.com/products', {
     cache: 'no-store',
   });
 
@@ -9,7 +9,8 @@ async function getProducts() {
     throw new Error('Error fetching products');
   }
 
-  return res.json();
+  const data = await res.json();
+  return data.products;
 }
 
 export default async function Home() {
@@ -37,7 +38,7 @@ export default async function Home() {
               className="bg-white rounded-2xl shadow-md p-4"
             >
               <img
-                src={product.image}
+                src={product.thumbnail}
                 alt={product.title}
                 className="h-40 mx-auto object-contain"
               />
