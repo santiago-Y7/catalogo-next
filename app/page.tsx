@@ -13,10 +13,10 @@ export default async function Home() {
       </h1>
 
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((product: any) => (
+        {products.map((product) => (
           <div
             key={product.id}
-            className="bg-white rounded-2xl shadow-md p-4 hover:shadow-xl transition"
+            className="bg-white rounded-2xl shadow-md p-4"
           >
             <img
               src={product.image}
@@ -24,17 +24,13 @@ export default async function Home() {
               className="h-40 mx-auto object-contain"
             />
 
-            <h2 className="mt-4 font-semibold text-sm line-clamp-2">
+            <h2 className="mt-4 font-semibold text-sm">
               {product.title}
             </h2>
 
             <p className="text-lg font-bold text-green-600 mt-2">
               ${product.price}
             </p>
-
-            <button className="mt-4 w-full bg-black text-white py-2 rounded-xl hover:bg-gray-800 transition">
-              Ver producto
-            </button>
           </div>
         ))}
       </div>
